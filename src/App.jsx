@@ -5,8 +5,9 @@ import Workflow from './components/Workflow';
 import Impact from './components/Impact';
 import Contact from './components/Contact';
 
-const BACKEND_BASE_URL = typeof window !== 'undefined' && window.location.hostname === 'localhost' ? 'http://localhost:3100' : '';
+const BACKEND_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
 const API_BASE_URL = `${BACKEND_BASE_URL}/api/eligibility`;
+const SYNC_API_URL = `${BACKEND_BASE_URL}/api/sync`;
 
 const loadLogs = () => {
   if (typeof window === 'undefined') return [];
@@ -225,7 +226,7 @@ export default function App() {
     }
 
     try {
-      const response = await fetch('http://localhost:3100/api/sync', {
+      const response = await fetch(SYNC_API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

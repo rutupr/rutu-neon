@@ -1,7 +1,7 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
-const API_BASE_URL = 'http://localhost:3100/api/eligibility';
-const HERO_METRICS_ENDPOINT = 'http://localhost:3100/api/eligibility/latest';
+const API_BASE_URL = '/api/eligibility';
+const HERO_METRICS_ENDPOINT = '/api/eligibility/latest';
 
 function renderHeroMetrics(metrics = {}) {
   const setText = (id, value) => {
